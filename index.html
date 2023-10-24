@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>liftJS</title>
+
+		<link rel="stylesheet" href="/styles/style.css" />
+	</head>
+	<body class="w-screen h-screen px-3 py-4 antialiased">
+		<!-- Heading -->
+		<h1 class="mb-4 text-3xl text-center text-red-400 font-tilt-neon">
+			liftJS
+		</h1>
+
+		<!-- Page Content -->
+		<section>
+			<!-- Sidebar -->
+			<aside class="mb-4 text-center">
+				<h2 class="mb-2 font-bold">1 / X</h2>
+				<p>Only declarations are hoisted</p>
+			</aside>
+
+			<!-- Main -->
+			<main class="grid items-center justify-center">
+				<!-- Code -->
+				<section class="mb-4 mockup-code">
+					<pre data-prefix="1"><code>console.log(foo)</code></pre>
+					<pre data-prefix="2"><code>var foo; // declaration</code></pre>
+					<pre data-prefix="3"><code>foo = "bar"; //initialization</code></pre>
+				</section>
+
+				<!-- Prompt and options -->
+				<section>
+					<!-- Prompt -->
+					<p class="mb-2">What should console.log print?</p>
+
+					<!-- Radio options -->
+					<ul class="mb-4">
+						<li class="flex items-center mb-2">
+							<input
+								type="radio"
+								name="q1"
+								value="paris"
+								class="radio checked:bg-red-400"
+							/>
+							<span class="pl-4">undefined</span>
+						</li>
+						<li class="flex items-center mb-2">
+							<input
+								type="radio"
+								name="q1"
+								value="london"
+								class="radio checked:bg-red-400"
+							/>
+							<span class="pl-4">bar</span>
+						</li>
+					</ul>
+
+					<!-- Button Group -->
+					<section class="flex justify-between mb-4">
+						<button class="rounded-md btn btn-secondary btn-sm">Submit</button>
+						<button class="rounded-md btn btn-primary btn-sm">Next</button>
+					</section>
+				</section>
+
+				<!-- Feedback -->
+				<section class="mx-auto">
+					<!-- Correct -->
+					<section class="hidden rounded-md alert alert-success">
+						<div class="flex">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="w-6 h-6 stroke-current shrink-0"
+								fill="none"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+								/>
+							</svg>
+							<span>Correct!</span>
+						</div>
+						<p>
+							All JavaScript variables are declared with 'undefined' with
+							exception of const.
+						</p>
+					</section>
+
+					<!-- Incorrect -->
+					<section class="hidden rounded-md alert alert-error">
+						<div class="flex">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="w-6 h-6 stroke-current shrink-0"
+								fill="none"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+								/>
+							</svg>
+							<span>Incorrect!</span>
+						</div>
+						<p>
+							The variable does not get its value until goes to the line where
+							it is initialized and by default var has undefined assigned to it.
+						</p>
+					</section>
+				</section>
+			</main>
+		</section>
+	</body>
+</html>
