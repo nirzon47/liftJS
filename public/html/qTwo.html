@@ -1,0 +1,160 @@
+<!-- Page Content -->
+<section
+	class="flex flex-col min-h-[calc(100vh-5.5rem)] md:grid md:grid-cols-12"
+	id="page-content"
+>
+	<!-- Loading Indicator -->
+	<div class="flex items-center justify-center md:col-span-12">
+		<span
+			class="flex justify-center loading loading-dots loading-sm md:loading-md htmx-indicator"
+			id="loading-indicator"
+		></span>
+	</div>
+
+	<!-- Sidebar -->
+	<aside class="mb-4 text-center md:col-span-3 md:text-left md:col-start-2">
+		<h2 class="mb-2 font-bold">2 / placeholderX</h2>
+		<br class="hidden md:block" />
+		<p><code>var</code> has functional scope</p>
+		<p class="hidden w-9/12 md:block">
+			<br /><br />
+			JavaScript only hoists the declarations of functions and variables into
+			memory during compile time, not the assignments.
+			<br /><br />This means that if a variable is declared and initialized
+			after using it, the value will be
+			<code class="bg-slate-900">undefined</code>.
+		</p>
+	</aside>
+
+	<!-- Main -->
+	<main class="grid items-center justify-center md:col-span-8 md:justify-start">
+		<!-- Code -->
+		<section class="mb-4 text-sm rounded-md mockup-code">
+			<pre data-prefix="1"><code>function doSomething() {</code></pre>
+			<pre data-prefix="2"><code> var doing = "something";</code></pre>
+			<pre data-prefix="3"><code>}</code></pre>
+			<pre data-prefix="4"><code></code></pre>
+			<pre data-prefix="5"><code>console.log(doing);</code></pre>
+		</section>
+
+		<!-- Prompt and options -->
+		<section>
+			<!-- Prompt -->
+			<p class="mb-2">What should console.log print?</p>
+
+			<!-- Radio options -->
+			<ul class="mb-6">
+				<li class="flex items-center mb-2">
+					<input
+						type="radio"
+						name="q1"
+						id="1"
+						value="1"
+						class="radio checked:bg-red-400"
+					/>
+					<span class="pl-4">something</span>
+				</li>
+				<li class="flex items-center mb-2">
+					<input
+						type="radio"
+						name="q1"
+						id="2"
+						value="2"
+						class="radio checked:bg-red-400"
+					/>
+					<span class="pl-4">Reference Error</span>
+				</li>
+			</ul>
+
+			<!-- Submit Button -->
+			<button class="mb-4 rounded-md btn btn-success btn-sm" onclick="qTwo()">
+				Submit
+			</button>
+		</section>
+
+		<!-- Feedback -->
+		<section class="relative mx-auto mb-8 md:mx-0">
+			<!-- Correct -->
+			<section
+				class="flex flex-col duration-200 rounded-md opacity-0 alert alert-success"
+				id="correct"
+			>
+				<div class="flex">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-6 h-6 stroke-current shrink-0"
+						fill="none"
+						viewBox="0 0 24 24"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+						/>
+					</svg>
+					<span class="pl-1">Correct!</span>
+				</div>
+				<p class="text-center">
+					The variable can only be accessed within the function.
+				</p>
+			</section>
+
+			<!-- Incorrect -->
+			<section
+				class="absolute top-0 flex flex-col duration-200 rounded-md opacity-0 alert alert-error"
+				id="incorrect"
+			>
+				<div class="flex">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="w-6 h-6 stroke-current shrink-0"
+						fill="none"
+						viewBox="0 0 24 24"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+						/>
+					</svg>
+					<span class="pl-1">Incorrect!</span>
+				</div>
+				<p class="text-center">
+					The variable exists only within the function. It can not be accessed
+					from outside.
+				</p>
+			</section>
+		</section>
+	</main>
+
+	<!-- Navigation Button Group -->
+	<section
+		class="flex justify-around mt-auto gap-x-4 md:col-start-5 md:col-span-8 md:justify-start"
+	>
+		<button
+			class="rounded-md btn btn-primary btn-sm"
+			hx-get="/"
+			hx-trigger="click"
+			hx-swap="outerHTML transition:true"
+			hx-target="body"
+			hx-indicator="#loading-indicator"
+		>
+			<i class="fa-solid fa-chevron-left fa-xs"></i>Previous
+		</button>
+		<button
+			class="rounded-md btn btn-primary btn-sm"
+			hx-get="/q2"
+			hx-trigger="click"
+			hx-swap="outerHTML transition:true"
+			hx-target="#page-content"
+			hx-indicator="#loading-indicator"
+		>
+			Next <i class="fa-solid fa-chevron-right fa-xs"></i>
+		</button>
+	</section>
+
+	<!-- Script to handle the answers -->
+	<script src="/scripts/answerHandler.js" defer></script>
+</section>

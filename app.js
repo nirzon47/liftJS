@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/index.html')
 })
 
+app.get('/q2', (req, res) => {
+	res.sendFile(__dirname + '/public/html/qTwo.html')
+})
+
 app.listen(port, () => {
 	console.log(`Server up at:${port}`)
 })
