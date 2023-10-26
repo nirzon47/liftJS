@@ -1,0 +1,63 @@
+<!-- Page Content -->
+<section
+	class="flex flex-col min-h-[calc(100vh-5.5rem)] md:grid md:grid-cols-12"
+	id="page-content"
+>
+	<!-- Loading Indicator -->
+	<div class="flex items-center justify-center md:col-span-12">
+		<span
+			class="flex justify-center loading loading-dots loading-sm md:loading-md htmx-indicator"
+			id="loading-indicator"
+		></span>
+	</div>
+
+	<!-- Sidebar -->
+	<aside
+		class="mb-4 text-center md:col-span-3 md:text-left md:col-start-1"
+	></aside>
+
+	<!-- Main -->
+	<main class="grid items-center justify-center md:col-span-8 md:justify-start">
+		<h2 class="text-2xl font-bold">Congratulations! 🎉</h2>
+		<h3>You have completed the quiz!</h3>
+		<p>
+			Hoisting is (to many developers) an unknown or overlooked behavior of
+			JavaScript.<br />
+			If a developer doesn't understand hoisting, programs may contain bugs
+			(errors).<br /><br />
+			To avoid bugs, always declare all variables at the beginning of every
+			scope.<br />
+			Since this is how JavaScript interprets the code, it is always a good
+			rule.
+		</p>
+	</main>
+
+	<!-- Navigation Button Group -->
+	<section
+		class="flex justify-around mt-auto gap-x-4 md:col-start-5 md:col-span-8 md:justify-start"
+	>
+		<button
+			class="rounded-md btn btn-primary btn-sm"
+			hx-get="/q7"
+			hx-trigger="click"
+			hx-swap="outerHTML transition:true"
+			hx-target="#page-content"
+			hx-indicator="#loading-indicator"
+		>
+			<i class="fa-solid fa-chevron-left fa-xs"></i>Previous
+		</button>
+		<button
+			class="hidden rounded-md btn btn-primary btn-sm"
+			hx-get="/congrats"
+			hx-trigger="click"
+			hx-swap="outerHTML transition:true"
+			hx-target="#page-content"
+			hx-indicator="#loading-indicator"
+		>
+			Next <i class="fa-solid fa-chevron-right fa-xs"></i>
+		</button>
+	</section>
+
+	<!-- Script to handle the answers -->
+	<script src="/scripts/answerHandler.js" defer></script>
+</section>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,6 +19,9 @@
 
 		<!-- HTMX Script -->
 		<script src="/scripts/htmx.min.js" defer></script>
+
+		<!-- Theme Changer -->
+		<script src="/scripts/themeHandler.js" defer></script>
 	</head>
 	<body class="w-screen min-h-screen px-3 py-4 antialiased">
 		<!-- Heading -->
@@ -36,7 +39,7 @@
 				class="col-span-1 col-start-11 opacity-0 swap swap-rotate md:opacity-100"
 			>
 				<!-- this hidden checkbox controls the state -->
-				<input type="checkbox" />
+				<input type="checkbox" onclick="toggleTheme()" />
 
 				<!-- sun icon -->
 				<svg

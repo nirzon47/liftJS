@@ -37,6 +37,10 @@ app.get('/q7', (req, res) => {
 	res.sendFile(__dirname + '/public/html/qSeven.html')
 })
 
+app.get('/congrats', (req, res) => {
+	res.sendFile(__dirname + '/public/html/congrats.html')
+})
+
 app.listen(port, () => {
 	console.log(`Server up at:${port}`)
 })
