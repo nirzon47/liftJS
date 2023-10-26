@@ -2,13 +2,17 @@ import express from 'express'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 
+// Imports to get the directory and filename
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+
+// Server Setup
 const app = express()
 const port = process.env.PORT || 3000
 
 app.use(express.static('public'))
 
+// All the API routes
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/index.html')
 })
@@ -41,6 +45,9 @@ app.get('/congrats', (req, res) => {
 	res.sendFile(__dirname + '/public/html/congrats.html')
 })
 
+// API routes end here
+
+// Server start
 app.listen(port, () => {
 	console.log(`Server up at:${port}`)
 })
