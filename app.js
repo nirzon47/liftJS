@@ -51,3 +51,5 @@ app.get('/congrats', (req, res) => {
 app.listen(port, () => {
 	console.log(`Server up at:${port}`)
 })
+
+export default app

@@ -18,6 +18,7 @@
 	},
 	"scripts": {
 		"buildcss": "bunx tailwindcss -i ./public/styles/input.css -o ./public/styles/style.css --watch",
-		"start": "nodemon app.js"
+		"start": "nodemon app.js",
+		"vercel-build": "echo hello"
 	}
 }
