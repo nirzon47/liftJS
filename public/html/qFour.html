@@ -13,14 +13,14 @@
 
 	<!-- Sidebar -->
 	<aside class="mb-4 text-center md:col-span-3 md:text-left md:col-start-2">
-		<h2 class="mb-2 font-bold">2 / placeholderX</h2>
+		<h2 class="mb-2 font-bold">4 / placeholderX</h2>
 		<br class="hidden md:block" />
-		<p class="md:w-9/12">Function Scope</p>
+		<p class="md:w-9/12">JavaScript Declarations are Hoisted</p>
 		<p class="hidden w-9/12 md:block">
 			<br /><br />
-			JavaScript has function scope: Each function creates a new scope.
-			<br /><br />Variables defined inside a function are not accessible
-			(visible) from outside the function.
+			In JavaScript, a variable can be declared after it has been used.
+			<br /><br />In other words; a variable can be used before it has been
+			declared.
 		</p>
 	</aside>
 
@@ -28,11 +28,10 @@
 	<main class="grid items-center justify-center md:col-span-8 md:justify-start">
 		<!-- Code -->
 		<section class="mb-4 text-sm rounded-md mockup-code">
-			<pre data-prefix="1"><code>function doSomething() {</code></pre>
-			<pre data-prefix="2"><code> var doing = "something";</code></pre>
-			<pre data-prefix="3"><code>}</code></pre>
-			<pre data-prefix="4"><code></code></pre>
-			<pre data-prefix="5"><code>console.log(doing);</code></pre>
+			<pre data-prefix="1"><code>x = 5</code></pre>
+			<pre data-prefix="2"><code>console.log(x);</code></pre>
+			<pre data-prefix="3"><code></code></pre>
+			<pre data-prefix="4"><code>var x;</code></pre>
 		</section>
 
 		<!-- Prompt and options -->
@@ -50,7 +49,7 @@
 						value="1"
 						class="radio checked:bg-red-400"
 					/>
-					<span class="pl-4">something</span>
+					<span class="pl-4">5</span>
 				</li>
 				<li class="flex items-center mb-2">
 					<input
@@ -67,7 +66,7 @@
 			<!-- Submit Button -->
 			<button
 				class="mb-4 rounded-md btn btn-success btn-sm"
-				onclick="secondIsAnswer()"
+				onclick="firstIsAnswer()"
 			>
 				Submit
 			</button>
@@ -97,7 +96,7 @@
 					<span class="pl-1">Correct!</span>
 				</div>
 				<p class="text-center">
-					The variable can only be accessed within the function.
+					The declaration is hoisted so you can access it before line 4.
 				</p>
 			</section>
 
@@ -123,8 +122,8 @@
 					<span class="pl-1">Incorrect!</span>
 				</div>
 				<p class="text-center">
-					The variable exists only within the function. It can not be accessed
-					from outside.
+					The declaration is hoisted, even if it did not have any value, it
+					would still not throw Reference Error.
 				</p>
 			</section>
 		</section>
@@ -136,17 +135,17 @@
 	>
 		<button
 			class="rounded-md btn btn-primary btn-sm"
-			hx-get="/"
+			hx-get="/q3"
 			hx-trigger="click"
 			hx-swap="outerHTML transition:true"
-			hx-target="body"
+			hx-target="#page-content"
 			hx-indicator="#loading-indicator"
 		>
 			<i class="fa-solid fa-chevron-left fa-xs"></i>Previous
 		</button>
 		<button
 			class="rounded-md btn btn-primary btn-sm"
-			hx-get="/q3"
+			hx-get="/q5"
 			hx-trigger="click"
 			hx-swap="outerHTML transition:true"
 			hx-target="#page-content"

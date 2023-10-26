@@ -13,14 +13,20 @@
 
 	<!-- Sidebar -->
 	<aside class="mb-4 text-center md:col-span-3 md:text-left md:col-start-2">
-		<h2 class="mb-2 font-bold">2 / placeholderX</h2>
+		<h2 class="mb-2 font-bold">5 / placeholderX</h2>
 		<br class="hidden md:block" />
-		<p class="md:w-9/12">Function Scope</p>
+		<p class="md:w-9/12">
+			Variables declared with let are <br class="hidden md:block" />hoisted to
+			the top,<br class="hidden md:block" />
+			but not initialized.
+		</p>
 		<p class="hidden w-9/12 md:block">
 			<br /><br />
-			JavaScript has function scope: Each function creates a new scope.
-			<br /><br />Variables defined inside a function are not accessible
-			(visible) from outside the function.
+			Meaning: The block of code is aware of the variable, but it cannot be used
+			until it has been declared.
+			<br /><br />Using a let variable before it is declared will result in a
+			ReferenceError. <br /><br />The variable is in a "temporal dead zone" from
+			the start of the block until it is declared.
 		</p>
 	</aside>
 
@@ -28,17 +34,18 @@
 	<main class="grid items-center justify-center md:col-span-8 md:justify-start">
 		<!-- Code -->
 		<section class="mb-4 text-sm rounded-md mockup-code">
-			<pre data-prefix="1"><code>function doSomething() {</code></pre>
-			<pre data-prefix="2"><code> var doing = "something";</code></pre>
-			<pre data-prefix="3"><code>}</code></pre>
-			<pre data-prefix="4"><code></code></pre>
-			<pre data-prefix="5"><code>console.log(doing);</code></pre>
+			<pre data-prefix="1"><code>try {</code></pre>
+			<pre data-prefix="2"><code>	carName = "Saab";</code></pre>
+			<pre data-prefix="3"><code>	let carName = "Volvo";</code></pre>
+			<pre data-prefix="4"><code>} catch (err) {</code></pre>
+			<pre data-prefix="5"><code>	console.log(err);</code></pre>
+			<pre data-prefix="6"><code>}</code></pre>
 		</section>
 
 		<!-- Prompt and options -->
 		<section>
 			<!-- Prompt -->
-			<p class="mb-2">What should console.log print?</p>
+			<p class="mb-2">Will the try block throw an error?</p>
 
 			<!-- Radio options -->
 			<ul class="mb-6">
@@ -50,7 +57,7 @@
 						value="1"
 						class="radio checked:bg-red-400"
 					/>
-					<span class="pl-4">something</span>
+					<span class="pl-4">Yes</span>
 				</li>
 				<li class="flex items-center mb-2">
 					<input
@@ -60,14 +67,14 @@
 						value="2"
 						class="radio checked:bg-red-400"
 					/>
-					<span class="pl-4">ReferenceError</span>
+					<span class="pl-4">No</span>
 				</li>
 			</ul>
 
 			<!-- Submit Button -->
 			<button
 				class="mb-4 rounded-md btn btn-success btn-sm"
-				onclick="secondIsAnswer()"
+				onclick="firstIsAnswer()"
 			>
 				Submit
 			</button>
@@ -97,7 +104,8 @@
 					<span class="pl-1">Correct!</span>
 				</div>
 				<p class="text-center">
-					The variable can only be accessed within the function.
+					Just because it is hoisted, does not mean it is initialized. It is in
+					the temporal dead zone.
 				</p>
 			</section>
 
@@ -123,8 +131,7 @@
 					<span class="pl-1">Incorrect!</span>
 				</div>
 				<p class="text-center">
-					The variable exists only within the function. It can not be accessed
-					from outside.
+					Just because it is hoisted, does not mean it is initialized.
 				</p>
 			</section>
 		</section>
@@ -136,17 +143,17 @@
 	>
 		<button
 			class="rounded-md btn btn-primary btn-sm"
-			hx-get="/"
+			hx-get="/q4"
 			hx-trigger="click"
 			hx-swap="outerHTML transition:true"
-			hx-target="body"
+			hx-target="#page-content"
 			hx-indicator="#loading-indicator"
 		>
 			<i class="fa-solid fa-chevron-left fa-xs"></i>Previous
 		</button>
 		<button
 			class="rounded-md btn btn-primary btn-sm"
-			hx-get="/q3"
+			hx-get="/q6"
 			hx-trigger="click"
 			hx-swap="outerHTML transition:true"
 			hx-target="#page-content"

@@ -24,7 +24,7 @@
 		<!-- Heading -->
 		<header class="grid items-center justify-between h-10 grid-cols-12 mb-4">
 			<h1
-				class="flex items-center text-3xl text-center text-red-400 cursor-default md:col-span-7 font-tilt-neon md:text-left md:text-4xl md:col-start-2"
+				class="flex items-center text-3xl text-center text-red-400 cursor-default md:col-span-9 font-tilt-neon md:text-left md:text-4xl md:col-start-2"
 			>
 				liftJS
 				<span class="hidden text-xl text-gray-400 md:inline">
@@ -79,14 +79,12 @@
 			<aside class="mb-4 text-center md:col-span-3 md:text-left md:col-start-2">
 				<h2 class="mb-2 font-bold">1 / placeholderX</h2>
 				<br class="hidden md:block" />
-				<p>Only declarations are hoisted.</p>
+				<p>GLobal Scope</p>
 				<p class="hidden w-9/12 md:block">
 					<br /><br />
-					JavaScript only hoists the declarations of functions and variables
-					into memory during compile time, not the assignments.
-					<br /><br />This means that if a variable is declared and initialized
-					after using it, the value will be
-					<code class="bg-slate-900">undefined</code>.
+					Variables declared Globally (outside any function) have Global Scope.
+					<br /><br />Global variables can be accessed from anywhere in a
+					JavaScript program.
 				</p>
 			</aside>
 
@@ -96,9 +94,10 @@
 			>
 				<!-- Code -->
 				<section class="mb-4 text-sm rounded-md mockup-code">
-					<pre data-prefix="1"><code>console.log(foo)</code></pre>
-					<pre data-prefix="2"><code>var foo; // declaration</code></pre>
-					<pre data-prefix="3"><code>foo = "bar"; //initialization</code></pre>
+					<pre data-prefix="1"><code>var foo = bar;</code></pre>
+					<pre data-prefix="2"><code>function test() {</code></pre>
+					<pre data-prefix="3"><code>	console.log(foo);</code></pre>
+					<pre data-prefix="4"><code>}</code></pre>
 				</section>
 
 				<!-- Prompt and options -->
@@ -116,7 +115,7 @@
 								value="1"
 								class="radio checked:bg-red-400"
 							/>
-							<span class="pl-4">undefined</span>
+							<span class="pl-4">bar</span>
 						</li>
 						<li class="flex items-center mb-2">
 							<input
@@ -126,14 +125,14 @@
 								value="2"
 								class="radio checked:bg-red-400"
 							/>
-							<span class="pl-4">bar</span>
+							<span class="pl-4">undefined</span>
 						</li>
 					</ul>
 
 					<!-- Submit Button -->
 					<button
 						class="mb-4 rounded-md btn btn-success btn-sm"
-						onclick="qOne()"
+						onclick="firstIsAnswer()"
 					>
 						Submit
 					</button>
@@ -163,8 +162,7 @@
 							<span class="pl-1">Correct!</span>
 						</div>
 						<p class="text-center">
-							All JavaScript variables are declared with 'undefined' with
-							exception of const.
+							Global variables can be accessed anywhere.
 						</p>
 					</section>
 
@@ -190,8 +188,7 @@
 							<span class="pl-1">Incorrect!</span>
 						</div>
 						<p class="text-center">
-							The variable does not get its value until goes to the line where
-							it is initialized and by default var has undefined assigned to it.
+							Global variables can be accessed anywhere.
 						</p>
 					</section>
 				</section>

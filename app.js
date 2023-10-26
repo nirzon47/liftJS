@@ -17,6 +17,26 @@ app.get('/q2', (req, res) => {
 	res.sendFile(__dirname + '/public/html/qTwo.html')
 })
 
+app.get('/q3', (req, res) => {
+	res.sendFile(__dirname + '/public/html/qThree.html')
+})
+
+app.get('/q4', (req, res) => {
+	res.sendFile(__dirname + '/public/html/qFour.html')
+})
+
+app.get('/q5', (req, res) => {
+	res.sendFile(__dirname + '/public/html/qFive.html')
+})
+
+app.get('/q6', (req, res) => {
+	res.sendFile(__dirname + '/public/html/qSix.html')
+})
+
+app.get('/q7', (req, res) => {
+	res.sendFile(__dirname + '/public/html/qSeven.html')
+})
+
 app.listen(port, () => {
 	console.log(`Server up at:${port}`)
 })

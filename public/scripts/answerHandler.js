@@ -1,24 +1,28 @@
 var correct = document.getElementById('correct')
 var incorrect = document.getElementById('incorrect')
 
-const qOne = () => {
+var firstIsAnswer = () => {
 	correct.classList.add('opacity-0')
 	incorrect.classList.add('opacity-0')
 
 	if (document.getElementById('1').checked) {
 		correct.classList.remove('opacity-0')
-	} else {
+	} else if (document.getElementById('2').checked) {
 		incorrect.classList.remove('opacity-0')
+	} else {
+		return
 	}
 }
 
-const qTwo = () => {
+var secondIsAnswer = () => {
 	correct.classList.add('opacity-0')
 	incorrect.classList.add('opacity-0')
 
 	if (document.getElementById('1').checked) {
 		incorrect.classList.remove('opacity-0')
-	} else {
+	} else if (document.getElementById('2').checked) {
 		correct.classList.remove('opacity-0')
+	} else {
+		return
 	}
 }
